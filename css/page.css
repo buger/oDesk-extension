@@ -1,0 +1,22 @@
+* {}
+
+.odesk_providers img {
+    vertical-align: middle;    
+    max-width: 40px;
+
+    margin-right: 10px !important; 
+}
+
+.odesk_providers ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.odesk_providers li {
+    padding: 5px;
+}
+
+.odesk_providers .header {
+    font-size: 14px;    
+}
