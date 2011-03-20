@@ -35,17 +35,17 @@
   margin-bottom:0;
 }
 
-#facebox .close{
+#facebox .fb_close{
   position:absolute;
   top:5px;
   right:5px;
   padding:2px;
   background:#fff;
 }
-#facebox .close img{
+#facebox .fb_close img{
   opacity:0.3;
 }
-#facebox .close:hover img{
+#facebox .fb_close:hover img{
   opacity:1.0;
 }
 

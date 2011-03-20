@@ -1,22 +1,42 @@
 * {}
 
-.odesk_providers img {
+.odesk_search_items img.avatar {
     vertical-align: middle;    
-    max-width: 40px;
-
+    width: 50px;
     margin-right: 10px !important; 
 }
 
-.odesk_providers ul {
+.odesk_search_items ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.odesk_providers li {
+.odesk_search_items li {
     padding: 5px;
 }
 
-.odesk_providers .header {
+.odesk_search_items .header {
     font-size: 14px;    
+}
+
+.odesk_search_items .search_type {
+    padding: 10px 0px;
+}
+
+.odesk_search_items a {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.odesk_search_items .search_type a {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.odesk_search_items a.inactive {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
 }

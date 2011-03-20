@@ -92,7 +92,7 @@
       <div class="fb_popup"> \
         <div class="fb_content"> \
         </div> \
-        <a href="#" class="close"></a> \
+        <a href="#" class="fb_close"></a> \
       </div> \
     </div>'
     },
@@ -183,7 +183,7 @@
       preload.slice(-1).src = $(this).css('background-image').replace(/url\((.+)\)/, '$1')
     })
 
-    $('#facebox .close')
+    $('#facebox .fb_close')
       .click($.facebox.close)
       .append('<img src="'
               + $.facebox.settings.closeImage

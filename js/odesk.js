@@ -26,7 +26,7 @@
             return json;
         }
 
-        oDesk.searchProviders = function(categories, search_term) {
+        oDesk.searchContractors = function(categories, search_term) {
             var query_params = {};
         
             if (categories)     
@@ -49,6 +49,31 @@
             }
 
             return this.callMethod("search/providers", {data: query_params, dataFilter: parse_providers});
+        }
+
+        oDesk.searchJobs = function(categories, search_term) {
+            var query_params = {};
+        
+            if (categories)     
+                for (var i=1; i<categories.length+1; i++) {
+                    query_params['c'+i] = categories[i];
+                }
+            
+            query_params['q'] = search_term;
+            
+            var parse_jobs = function(xml) {
+                var jobs = xml.getElementsByTagName("job");
+
+                var json = [];
+
+                for (var i=0; i<jobs.length; i++) {
+                    json.push(XMLToJSON(jobs[i]));
+                }
+
+                return json;
+            }
+
+            return this.callMethod("search/jobs", {data: query_params, dataFilter: parse_jobs});
         }
 
         window.oDesk = oDesk;
