@@ -17,15 +17,16 @@ browser.addMessageListener(function(msg) {
             var search_by_tags = function(){
                 var tags = $('#facebox .odesk_tags input[type=hidden]')
                     .map(function(){ return this.value }).toArray();
-                
-                $('#facebox .fb_content .odesk_search_results')
-                    .html('<div class="fb_loading"><img src="'+$.facebox.settings.loadingImage+'"/></div>');
-                
+                 
                 if (!search_type) {
                     search_type = $('#facebox .search_type .inactive').hasClass('search_jobs') ? 'jobs' : 'contractors';
-                }
 
-                console.log("Search type:", search_type);
+                    console.log($('#facebox .search_type .inactive').hasClass('search_jobs'), search_type);
+                }               
+
+                $('#facebox .fb_content .odesk_search_results')
+                    .html('<div class="fb_loading"><img src="'+$.facebox.settings.loadingImage+'"/></div>');
+
 
                 browser.postMessage({ method: 'search', tags: tags, search_type: search_type });
             }

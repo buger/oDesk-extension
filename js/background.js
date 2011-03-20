@@ -22,6 +22,10 @@ function generateHtmlForSearchResults(results, tags) {
 
     tags = tags.map(function(skill){return "<li>"+skill+"</li>"}).join(''); 
 
+    if (items.length == '0') {
+        items.push("<li>No matches</li>");
+    }
+
     items = '<ul>'+items.join('')+'</ul>';
     items = "<div class='odesk_search_items'>"+
                "<div class='header'>Tags: "+
