@@ -44,6 +44,8 @@
                 for (var i=0; i<providers.length; i++) {
                     json.push(XMLToJSON(providers[i]));
                 }
+                
+                console.log(json);
 
                 return json;
             }
@@ -69,6 +71,8 @@
                 for (var i=0; i<jobs.length; i++) {
                     json.push(XMLToJSON(jobs[i]));
                 }
+                
+                console.log(json)
 
                 return json;
             }

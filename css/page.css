@@ -1,5 +1,14 @@
 * {}
 
+.odesk_search_items a {
+    color: #03F;
+    text-decoration: none;
+}
+
+.odesk_search_items a:hover {
+    text-decoration: underline;
+}
+
 .odesk_search_items img.avatar {
     vertical-align: middle;    
     width: 50px;
@@ -32,11 +41,47 @@
 
 .odesk_search_items .search_type a {
     margin-right: 10px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .odesk_search_items a.inactive {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    font-size: 16px;
+    cursor: default;
+}
+
+.odesk_search_items .job_description,
+.odesk_search_items .score,
+.odesk_search_items .rate {
+    color: #7D7875;
+    font-size: 12px;
+}
+
+.odesk_search_items .job_description span {
+    margin-right: 5px;
+}
+
+.odesk_search_items .rate {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    width: 60px;
+}
+
+.odesk_search_items .job_description .type {
+    color: #600;
+    font-weight: bolder;
+}
+
+.odesk_provider_search {
+    margin-left: 5px;
+    opacity: 0.8;
+}
+
+.odesk_provider_search:hover {
+    opacity: 1;
 }

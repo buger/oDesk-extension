@@ -1,6 +1,8 @@
 $.facebox.settings.closeImage = chrome.extension.getURL('/facebox/closelabel.png');
 $.facebox.settings.loadingImage = chrome.extension.getURL('/facebox/loading.gif');
 
+var logo = chrome.extension.getURL('odesk-logo.png');
+
 var response_func;
 
 browser.addMessageListener(function(msg) {
@@ -72,7 +74,7 @@ browser.onReady(function(){});
 
 $(document).ready(function() {
     $('.post-taglist, .summary .tags').each(function(){
-        $('<a class="odesk_provider_search">Search on oDesk</a>').appendTo(this);
+        $('<a class="odesk_provider_search" title="Search on oDesk"><img src="'+logo+'" style="width: 18px; height: 18px; vertical-align: middle;"/></a>').appendTo(this);
     });
 
     $('.odesk_provider_search').live('click', function(){

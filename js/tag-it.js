@@ -98,7 +98,7 @@
             keyCode == ENTER ||
             keyCode == TAB ||
             (
-              keyCode == SPACE &&
+              false && keyCode == SPACE &&
               (
                 (tagInput.val().trim().replace( /^s*/, "" ).charAt(0) != '"') ||
                 (

@@ -1,0 +1,30 @@
+#facebox {
+    position: relative;    
+}
+
+#facebox .fb_popup {
+    border: 0;
+    box-shadow: 0;
+    -webkit-box-shadow: 0;
+}
+
+#facebox .fb_content {
+    display: block;
+    border-radius: 0;
+}
+
+.logo img {
+    vertical-align: top;    
+    margin-right: 10px !important;
+}
+
+.logo {
+    text-decoration: none;
+    color: #9C9C9C;
+    font-size: 12px;
+    line-height: 150%;
+}
+
+.logo:hover {
+    text-decoration: underline;
+}

@@ -6,15 +6,31 @@ function generateHtmlForSearchResults(results, tags) {
             var href = "http://www.odesk.com/jobs/"+results[i].ciphertext;
             var html = '<li><a href="'+href+'" target="_blank">'
                 
-            html += results[i].op_title+'</a></li>';
+            html += results[i].op_title+'</a>';            
+            html += "<div class='job_description'>";
+            html += "<span class='type'>"+results[i].job_type+"</span>";
+            if (results[i].job_type === 'Fixed') {
+                html += "<span>Est. Budget: $"+parseInt(results[i].amount)+".00</span>";
+            } else {
+                html += "<span>Est. Time: "+results[i].engagement_weeks+",</span>";
+                html += "<span>"+results[i].op_engagement+"</span>";
+
+                if (results[i].op_avg_hourly_rate_all) {
+                    html += "<span>Avg. Hourly rate: $"+parseInt(results[i].op_avg_hourly_rate_all)+"</span>";
+                }
+            }
+            html += "</div>";
+            html += '</li>';
         } else {
             var href = "http://www.odesk.com/users/"+results[i].ciphertext;
             var html = '<li><a href="'+href+'" target="_blank">'
             if (!results[i].dev_portrait)
                 results[i].dev_portrait = browser.extension.getURL("/empty_avatar.png?1");
 
-            html += '<img class="avatar" src="'+results[i].dev_portrait+'"/>';
-            html += results[i].contact_name+'</a></li>';
+            html += '<img class="avatar" src="'+results[i].dev_portrait+'"/>';            
+            html += "<span class='rate'>$"+results[i].charge_rate_hourly+"/hr</span>";
+            html += results[i].contact_name+'</a>';
+            html += '</li>';
         }
         
         items.push(html);
@@ -33,9 +49,9 @@ function generateHtmlForSearchResults(results, tags) {
                 "</div>"+
                 "<div class='odesk_search_results'>"+
                     "<div class='search_type'>"+
-                        "<a class='search_contractors'>Search contractors</a>"+
-                        "<a class='search_jobs'>Search jobs</a>"+
-                    "</div>"+items+
+                        "<a class='search_contractors' href='javascript:;'>Search contractors</a>"+
+                        "<a class='search_jobs' href='javascript:;'>Search jobs</a>"+
+                    "</div>"+items+                    
                 "</div>"+
             "</div>"
 
@@ -139,8 +155,6 @@ browser.webdb.createTable();
 
 browser.webdb.query("SELECT * FROM skills LIMIT 1", 
     function(tx, result){
-        console.log(result.rows.length);
-
         if (result.rows.length === 0) {
             for (var i=0; i<window.skills_dictionary.length; i++) {
                 tx.executeSql('INSERT INTO skills(skill, tag) VALUES (?,?)', 
