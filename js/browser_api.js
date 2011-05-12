@@ -110,8 +110,11 @@
                 }
             },
 
-            postMessage: function(tab, message) {               
-                var connection = browser._getConnectionByTab(tab);                
+            postMessage: function(tab, message) { 
+                var connection = browser.tabs._getConnectionByTab(tab);
+                
+                console.log("Connection:", connection);
+                console.log(tab, browser.connected_ports);
 
                 if (connection) {
                     browser.postMessage(message, connection);
@@ -127,13 +130,19 @@
             },
 
             _getConnectionByTab: function(tab) {
-                browser._connected_ports.forEach(function(port) {
+                var port;
+
+                browser.connected_ports.forEach(function(p) {
                     if (browser.isChrome) {
-                        if (port.tab._tabId === tab._tabId) {
-                            return port;
-                        }
+                        try {
+                            if (p.tab.id === tab.id) {
+                                port = p;
+                            }
+                        } catch (e) {}
                     }
                 });
+
+                return port;
             }
         },        
 
@@ -218,7 +227,7 @@
                     // Converting Chrome regexp to Javascript format:
                     //     http://*.last.fm/* -> ^http://.*\.last\.fm/.*
                     var rg = new RegExp('^'+match.replace(/\./, "\\.").replace('*','.*'));
-
+                    
                     if (rg.test(url)) {
                         origin_matches = true;
                         
@@ -244,14 +253,22 @@
             var scripts = scripts.unique();
 
             for (var i=0; i<scripts.length; i++) {
-                scripts[i] = browser._files_cache[scripts[i]];                            
+                if (cache = browser._files_cache[scripts[i]]) {
+                    scripts[i] = cache;
+                } else {
+                    scripts[i] = scripts[i];
+                }
             }
 
             
             var styles = styles.unique();
 
             for (var i=0; i<styles.length; i++) {
-                styles[i] = browser._files_cache[styles[i]];
+                if (cache = browser._files_cache[styles[i]]) {
+                    styles[i] = cache;
+                } else {
+                    styles[i] = styles[i];
+                }
             }    
             
             return { styles: styles, scripts: scripts };

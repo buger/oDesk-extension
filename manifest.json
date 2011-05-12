@@ -3,6 +3,7 @@
    "version": "0.2.1",
    "description": "oDesk",
    "icons": {
+       "16": "odesk-logo.png",
        "128": "odesk-logo.png"
    },
    "browser_action": {
@@ -12,7 +13,7 @@
    },
    "content_scripts": [{
       "css": ["css/jquery-ui/jquery.ui.autocomplete.custom.css", "css/facebox.css","css/page.css"],
-      "js": ["js/jquery.min.js", "js/jquery-ui/jquery-ui.core-and-interactions.min.js", "js/jquery-ui/jquery-ui.autocomplete.min.js", "js/tag-it.js", "js/facebox.js", "js/browser_api.js", "js/content_script.js"],
+      "js": ["js/jquery.min.js", "js/jquery-ui/jquery-ui.core-and-interactions.min.js", "js/jquery-ui/jquery-ui.autocomplete.min.js", "js/tag-it.js", "js/facebox.js", "js/browser_api.js", "js/tools.js", "js/content_script.js"],
       "matches": ["http://*/*","https://*/*"]
    }],
    "background_page": "background.html",

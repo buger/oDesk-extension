@@ -19,7 +19,10 @@
 
             for(var i=0; i<childNodes.length; i++) {                
                 if (childNodes[i].childNodes.length > 0) {
-                    json[childNodes[i].tagName] = childNodes[i].childNodes[0].nodeValue;
+                    if (childNodes[i].childNodes[0].nodeValue) 
+                        json[childNodes[i].tagName] = childNodes[i].childNodes[0].nodeValue;                    
+                    else
+                        json[childNodes[i].tagName] = XMLToJSON(childNodes[i]);
                 }                
             }
 

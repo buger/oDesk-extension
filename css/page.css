@@ -9,7 +9,30 @@
     text-decoration: underline;
 }
 
-.odesk_search_items img.avatar {
+.odesk_search_items .avatar {
+    width: 60px;
+}
+
+.odesk_search_results .contractor .description{
+    width: 270px;
+}
+
+.odesk_search_results .contractor .description .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    line-height: 150%;
+}
+
+.odesk_search_results .contractor .description .info {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.odesk_search_items .avatar img {
     vertical-align: middle;    
     width: 50px;
     margin-right: 10px !important; 
@@ -23,6 +46,33 @@
 
 .odesk_search_items li {
     padding: 5px;
+    border: 1px solid white;
+}
+
+.odesk_search_items .clear {
+    clear: both;
+    height: 1px;
+    line-height: 1px;
+}
+
+.odesk_search_items .float {
+    float: left;
+}
+
+.odesk_search_results li {
+    position: relative;
+}
+
+.odesk_search_results li:hover {
+    border: 1px solid #225A94;
+
+    background: -webkit-gradient(linear,0% 0,0% 80%,from(#F2F9FF),to(#EDF4FA),color-stop(.5,#ECF3F9));
+    color: #333;
+    -moz-box-shadow: 0 1px 2px #CCC;
+    -webkit-box-shadow: 0 1px 2px #CCC;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    background: -webkit-gradient(linear,0% 0,0% 80%,from(#F2F9FF),to(#EDF4FA),color-stop(.5,#ECF3F9));
 }
 
 .odesk_search_items .header {
@@ -52,14 +102,14 @@
     cursor: default;
 }
 
-.odesk_search_items .job_description,
+.odesk_search_items .description,
 .odesk_search_items .score,
 .odesk_search_items .rate {
     color: #7D7875;
     font-size: 12px;
 }
 
-.odesk_search_items .job_description span {
+.odesk_search_items .description span {
     margin-right: 5px;
 }
 
@@ -72,7 +122,7 @@
     width: 60px;
 }
 
-.odesk_search_items .job_description .type {
+.odesk_search_items .description .type {
     color: #600;
     font-weight: bolder;
 }
@@ -84,4 +134,16 @@
 
 .odesk_provider_search:hover {
     opacity: 1;
+}
+
+.odesk_search_results .advanced_search {
+    text-align: right;
+}
+
+.odesk_search_results .advanced_search a {
+    font-size: 12px;
+}
+
+.odesk_search_results .bold {
+    font-weight: bold;
 }
